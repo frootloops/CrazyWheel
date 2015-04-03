@@ -12,17 +12,21 @@ import AVFoundation
 class MasterViewController: UITableViewController {
   let app = UIApplication.sharedApplication()
   let worker = Worker()
-  var objects = [Ride]()
+  var rides = [Ride]()
 
 
   override func viewDidLoad() {
     super.viewDidLoad()
     customizeNavigationBar()
-    startUpdating()
+    startUpdating(){}
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100.0
   }
   
   @IBAction func refresh(sender: UIRefreshControl) {
-    sender.endRefreshing()
+    startUpdating() {
+      sender.endRefreshing()
+    }
   }
 
   // MARK: - Segues
@@ -38,28 +42,31 @@ class MasterViewController: UITableViewController {
 
   // MARK: - Table View
 
-  override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-    return 1
-  }
-
   override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return objects.count
+    return rides.count
   }
 
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
-
-//    let object = objects[indexPath.row] as NSDate
-//    cell.textLabel!.text = object.description
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as CrazyCell
+    cell.ride = rides[indexPath.row] as Ride
+    
     return cell
   }
   
-  func startUpdating() {
+  func startUpdating(finish: () -> Void) {
     app.networkActivityIndicatorVisible = true
+    
     worker.update({ (rides) -> Void in
       self.app.networkActivityIndicatorVisible = false
+      self.rides = rides
+      dispatch_async(dispatch_get_main_queue(), {
+        self.tableView.reloadData()
+      })
+      finish()
     }, failure: { (error) -> Void in
       self.app.networkActivityIndicatorVisible = false
+      finish()
+      println("Damn!")
     })
   }
   
