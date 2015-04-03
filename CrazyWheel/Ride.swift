@@ -13,10 +13,10 @@ struct Ride {
   let title: String
   let body: String
   
-  static func decode(dict: NSDictionary) -> Ride? {
+  static func decode(dict: NSDictionary) -> Ride {
     let id = dict.objectForKey("id") as Int
     let title = dict.objectForKey("title") as String
-    let body = dict.objectForKey("body") as String
+    let body = dict.objectForKey("text") as String
   
     return Ride(id: id, title: title, body: body)
   }

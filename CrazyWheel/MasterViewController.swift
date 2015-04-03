@@ -10,16 +10,15 @@ import UIKit
 import AVFoundation
 
 class MasterViewController: UITableViewController {
-
+  let app = UIApplication.sharedApplication()
+  let worker = Worker()
   var objects = [Ride]()
 
 
-  override func awakeFromNib() {
-    super.awakeFromNib()
-  }
-
   override func viewDidLoad() {
     super.viewDidLoad()
+    customizeNavigationBar()
+    startUpdating()
   }
   
   @IBAction func refresh(sender: UIRefreshControl) {
@@ -53,6 +52,15 @@ class MasterViewController: UITableViewController {
 //    let object = objects[indexPath.row] as NSDate
 //    cell.textLabel!.text = object.description
     return cell
+  }
+  
+  func startUpdating() {
+    app.networkActivityIndicatorVisible = true
+    worker.update({ (rides) -> Void in
+      self.app.networkActivityIndicatorVisible = false
+    }, failure: { (error) -> Void in
+      self.app.networkActivityIndicatorVisible = false
+    })
   }
   
   // MARK: - UI
