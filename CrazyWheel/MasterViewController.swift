@@ -7,10 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class MasterViewController: UITableViewController {
 
-  var objects = [AnyObject]()
+  var objects = [Ride]()
 
 
   override func awakeFromNib() {
@@ -19,12 +20,10 @@ class MasterViewController: UITableViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    if let nav = self.navigationController?.navigationBar {
-      nav.barStyle = UIBarStyle.Black
-      nav.barTintColor = UIColor.blackColor()
-      nav.tintColor = UIColor.whiteColor()
-    }
+  }
+  
+  @IBAction func refresh(sender: UIRefreshControl) {
+    sender.endRefreshing()
   }
 
   // MARK: - Segues
@@ -32,8 +31,8 @@ class MasterViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
         if let indexPath = self.tableView.indexPathForSelectedRow() {
-            let object = objects[indexPath.row] as NSDate
-        (segue.destinationViewController as DetailViewController).detailItem = object
+  //          let object = objects[indexPath.row] as NSDate
+//        (segue.destinationViewController as DetailViewController).detailItem = object
         }
     }
   }
@@ -51,9 +50,19 @@ class MasterViewController: UITableViewController {
   override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as UITableViewCell
 
-    let object = objects[indexPath.row] as NSDate
-    cell.textLabel!.text = object.description
+//    let object = objects[indexPath.row] as NSDate
+//    cell.textLabel!.text = object.description
     return cell
+  }
+  
+  // MARK: - UI
+  
+  func customizeNavigationBar() {
+    if let nav = self.navigationController?.navigationBar {
+      nav.barStyle = UIBarStyle.Black
+      nav.barTintColor = UIColor.blackColor()
+      nav.tintColor = UIColor.whiteColor()
+    }
   }
 }
 
