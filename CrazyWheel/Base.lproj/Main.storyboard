@@ -98,24 +98,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lei-5M-9Gs">
-                                <rect key="frame" x="20" y="292" width="560" height="17"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" size="system"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="icI-BI-XGs">
+                                <rect key="frame" x="16" y="52" width="568" height="19.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Body" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oRm-MW-s9L">
+                                <rect key="frame" x="16" y="79" width="568" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leading" constant="20" symbolic="YES" id="62x-JV-TTJ"/>
-                            <constraint firstItem="Lei-5M-9Gs" firstAttribute="centerY" secondItem="MMQ-IT-qOo" secondAttribute="centerY" id="JzS-HC-Rnl"/>
-                            <constraint firstAttribute="trailing" secondItem="Lei-5M-9Gs" secondAttribute="trailing" constant="20" symbolic="YES" id="pXB-RP-Zz6"/>
+                            <constraint firstItem="icI-BI-XGs" firstAttribute="top" secondItem="cIm-e0-J51" secondAttribute="bottom" constant="8" symbolic="YES" id="3jW-Yr-yy4"/>
+                            <constraint firstItem="oRm-MW-s9L" firstAttribute="top" secondItem="icI-BI-XGs" secondAttribute="bottom" constant="8" symbolic="YES" id="EID-9e-iTS"/>
+                            <constraint firstItem="icI-BI-XGs" firstAttribute="trailing" secondItem="MMQ-IT-qOo" secondAttribute="trailingMargin" id="GmF-zf-PRO"/>
+                            <constraint firstItem="oRm-MW-s9L" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" id="Q4S-tl-d4q"/>
+                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="oRm-MW-s9L" secondAttribute="bottom" constant="8" symbolic="YES" id="Wu5-eY-sr7"/>
+                            <constraint firstItem="oRm-MW-s9L" firstAttribute="width" secondItem="icI-BI-XGs" secondAttribute="width" id="Zco-7p-5cI"/>
+                            <constraint firstItem="oRm-MW-s9L" firstAttribute="trailing" secondItem="MMQ-IT-qOo" secondAttribute="trailingMargin" id="cPd-Qu-sSi"/>
+                            <constraint firstItem="a0L-h9-sNL" firstAttribute="top" secondItem="oRm-MW-s9L" secondAttribute="bottom" constant="500" id="hJC-DU-KPv"/>
+                            <constraint firstItem="icI-BI-XGs" firstAttribute="leading" secondItem="MMQ-IT-qOo" secondAttribute="leadingMargin" id="pJL-LG-duE"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Zco-7p-5cI"/>
+                                <exclude reference="Wu5-eY-sr7"/>
+                                <exclude reference="hJC-DU-KPv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Detail" id="cra-N8-TIN"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="Lei-5M-9Gs" id="sCT-F7-F6f"/>
+                        <outlet property="name" destination="icI-BI-XGs" id="yK3-7q-AhM"/>
+                        <outlet property="text" destination="oRm-MW-s9L" id="RkC-hc-hXl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>

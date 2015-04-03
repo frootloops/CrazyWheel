@@ -9,37 +9,20 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-
-  @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-  var detailItem: AnyObject? {
-    didSet {
-        // Update the view.
-        self.configureView()
-    }
-  }
+  @IBOutlet weak var name: UILabel!
+  @IBOutlet weak var text: UILabel!
+  
+  var ride: Ride?
 
   func configureView() {
-    // Update the user interface for the detail item.
-    if let detail: AnyObject = self.detailItem {
-        if let label = self.detailDescriptionLabel {
-            label.text = detail.description
-        }
-    }
+    name.text = ride?.title
+    text.text = ride?.body
+    navigationItem.title = ride?.title ?? "Title"
   }
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
-    self.configureView()
+    configureView()
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 

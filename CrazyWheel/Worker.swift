@@ -26,15 +26,14 @@ class Worker {
 
     let task = session.dataTaskWithURL(NSURL(string: Constants.host)!) {(data, response, error) in
       if let collection = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? [NSDictionary] {
+        self.inProgress = false
         if error != nil {
           failure(error: error)
         } else {
           success(rides: collection.map { Ride.decode($0) })
         }
-        self.inProgress = false
       }
     }
     task.resume()
-    
   }
 }

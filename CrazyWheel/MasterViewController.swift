@@ -34,8 +34,8 @@ class MasterViewController: UITableViewController {
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     if segue.identifier == "showDetail" {
         if let indexPath = self.tableView.indexPathForSelectedRow() {
-  //          let object = objects[indexPath.row] as NSDate
-//        (segue.destinationViewController as DetailViewController).detailItem = object
+          let ride = rides[indexPath.row] as Ride
+          (segue.destinationViewController as DetailViewController).ride = ride
         }
     }
   }
@@ -57,16 +57,18 @@ class MasterViewController: UITableViewController {
     app.networkActivityIndicatorVisible = true
     
     worker.update({ (rides) -> Void in
-      self.app.networkActivityIndicatorVisible = false
-      self.rides = rides
       dispatch_async(dispatch_get_main_queue(), {
+        self.app.networkActivityIndicatorVisible = false
+        self.rides = rides
         self.tableView.reloadData()
+        finish()
       })
-      finish()
     }, failure: { (error) -> Void in
-      self.app.networkActivityIndicatorVisible = false
-      finish()
-      println("Damn!")
+      dispatch_async(dispatch_get_main_queue(), {
+        self.app.networkActivityIndicatorVisible = false
+        finish()
+        println("Damn!")
+      })
     })
   }
   
