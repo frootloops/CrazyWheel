@@ -12,7 +12,6 @@
 		818C2FF11ACE961700E9A7B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FF01ACE961700E9A7B0 /* DetailViewController.swift */; };
 		818C2FF41ACE961700E9A7B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818C2FF21ACE961700E9A7B0 /* Main.storyboard */; };
 		818C2FF61ACE961700E9A7B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818C2FF51ACE961700E9A7B0 /* Images.xcassets */; };
-		818C2FF91ACE961700E9A7B0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 818C2FF71ACE961700E9A7B0 /* LaunchScreen.xib */; };
 		818C30051ACE961700E9A7B0 /* CrazyWheelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30041ACE961700E9A7B0 /* CrazyWheelTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,7 +33,6 @@
 		818C2FF01ACE961700E9A7B0 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		818C2FF31ACE961700E9A7B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		818C2FF51ACE961700E9A7B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		818C2FF81ACE961700E9A7B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		818C2FFE1ACE961700E9A7B0 /* CrazyWheelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrazyWheelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		818C30031ACE961700E9A7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		818C30041ACE961700E9A7B0 /* CrazyWheelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrazyWheelTests.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				818C2FF01ACE961700E9A7B0 /* DetailViewController.swift */,
 				818C2FF21ACE961700E9A7B0 /* Main.storyboard */,
 				818C2FF51ACE961700E9A7B0 /* Images.xcassets */,
-				818C2FF71ACE961700E9A7B0 /* LaunchScreen.xib */,
 				818C2FEA1ACE961700E9A7B0 /* Supporting Files */,
 			);
 			path = CrazyWheel;
@@ -196,7 +193,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				818C2FF41ACE961700E9A7B0 /* Main.storyboard in Resources */,
-				818C2FF91ACE961700E9A7B0 /* LaunchScreen.xib in Resources */,
 				818C2FF61ACE961700E9A7B0 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,14 +242,6 @@
 				818C2FF31ACE961700E9A7B0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		818C2FF71ACE961700E9A7B0 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				818C2FF81ACE961700E9A7B0 /* Base */,
-			);
-			name = LaunchScreen.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -340,10 +328,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CrazyWheel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -351,10 +341,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CrazyWheel/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
