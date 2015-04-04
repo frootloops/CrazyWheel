@@ -40,7 +40,7 @@ class MasterViewController: UITableViewController {
   }
   
   override func viewDidAppear(animated: Bool) {
-    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("tickTock"), userInfo: nil, repeats: true)
+    timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: Selector("tickTock"), userInfo: nil, repeats: true)
   }
   
   func tickTock() {
@@ -50,11 +50,9 @@ class MasterViewController: UITableViewController {
   // MARK: - Segues
 
   override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if segue.identifier == "showDetail" {
-        if let indexPath = self.tableView.indexPathForSelectedRow() {
-          let ride = rides[indexPath.row] as Ride
-          (segue.destinationViewController as DetailViewController).ride = ride
-        }
+    if let indexPath = self.tableView.indexPathForSelectedRow() {
+      let ride = rides[indexPath.row] as Ride
+      (segue.destinationViewController as DetailViewController).ride = ride
     }
   }
 
