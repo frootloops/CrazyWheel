@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81733F621AD0694600E60D17 /* ding.aif in Resources */ = {isa = PBXBuildFile; fileRef = 81733F611AD0694600E60D17 /* ding.aif */; };
 		818C2FED1ACE961700E9A7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FEC1ACE961700E9A7B0 /* AppDelegate.swift */; };
 		818C2FEF1ACE961700E9A7B0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FEE1ACE961700E9A7B0 /* MasterViewController.swift */; };
 		818C2FF11ACE961700E9A7B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FF01ACE961700E9A7B0 /* DetailViewController.swift */; };
@@ -16,6 +17,7 @@
 		818C30371ACEAA9200E9A7B0 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30361ACEAA9200E9A7B0 /* Ride.swift */; };
 		818C30391ACEAE4F00E9A7B0 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30381ACEAE4F00E9A7B0 /* Worker.swift */; };
 		818C303D1ACED8D800E9A7B0 /* CrazyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */; };
+		81B3A4321AD0343800F83B7F /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3A4311AD0343800F83B7F /* SoundEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		81733F611AD0694600E60D17 /* ding.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = ding.aif; sourceTree = "<group>"; };
 		818C2FE71ACE961700E9A7B0 /* CrazyWheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrazyWheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		818C2FEB1ACE961700E9A7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		818C2FEC1ACE961700E9A7B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 		818C30361ACEAA9200E9A7B0 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		818C30381ACEAE4F00E9A7B0 /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrazyCell.swift; sourceTree = "<group>"; };
+		81B3A4311AD0343800F83B7F /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				818C30361ACEAA9200E9A7B0 /* Ride.swift */,
 				818C30381ACEAE4F00E9A7B0 /* Worker.swift */,
 				818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */,
+				81B3A4311AD0343800F83B7F /* SoundEffect.swift */,
 			);
 			path = CrazyWheel;
 			sourceTree = "<group>";
@@ -99,6 +104,7 @@
 		818C2FEA1ACE961700E9A7B0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81733F611AD0694600E60D17 /* ding.aif */,
 				818C2FEB1ACE961700E9A7B0 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -201,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81733F621AD0694600E60D17 /* ding.aif in Resources */,
 				818C2FF41ACE961700E9A7B0 /* Main.storyboard in Resources */,
 				818C2FF61ACE961700E9A7B0 /* Images.xcassets in Resources */,
 			);
@@ -223,6 +230,7 @@
 				818C30391ACEAE4F00E9A7B0 /* Worker.swift in Sources */,
 				818C2FF11ACE961700E9A7B0 /* DetailViewController.swift in Sources */,
 				818C30371ACEAA9200E9A7B0 /* Ride.swift in Sources */,
+				81B3A4321AD0343800F83B7F /* SoundEffect.swift in Sources */,
 				818C2FEF1ACE961700E9A7B0 /* MasterViewController.swift in Sources */,
 				818C303D1ACED8D800E9A7B0 /* CrazyCell.swift in Sources */,
 				818C2FED1ACE961700E9A7B0 /* AppDelegate.swift in Sources */,
@@ -293,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -329,7 +337,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -342,7 +350,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CrazyWheel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -355,7 +363,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = CrazyWheel/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -415,6 +423,7 @@
 				818C300A1ACE961700E9A7B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		818C300B1ACE961700E9A7B0 /* Build configuration list for PBXNativeTarget "CrazyWheelTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +432,7 @@
 				818C300D1ACE961700E9A7B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

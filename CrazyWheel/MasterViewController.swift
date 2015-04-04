@@ -12,21 +12,39 @@ import AVFoundation
 class MasterViewController: UITableViewController {
   let app = UIApplication.sharedApplication()
   let worker = Worker()
+  let soundEffect = SoundEffect()
+  var timer: NSTimer?
   var rides = [Ride]()
 
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    customizeNavigationBar()
-    startUpdating(){}
-    tableView.rowHeight = UITableViewAutomaticDimension
-    tableView.estimatedRowHeight = 100.0
+    customizeUI()
+    refreshControl?.beginRefreshing()
+    startUpdating() {
+      self.refreshControl?.endRefreshing()
+      return
+    }
   }
   
   @IBAction func refresh(sender: UIRefreshControl) {
     startUpdating() {
       sender.endRefreshing()
+      self.soundEffect.play()
     }
+  }
+  
+  override func viewDidDisappear(animated: Bool) {
+    timer?.invalidate()
+    timer = nil
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("tickTock"), userInfo: nil, repeats: true)
+  }
+  
+  func tickTock() {
+    startUpdating()
   }
 
   // MARK: - Segues
@@ -53,20 +71,20 @@ class MasterViewController: UITableViewController {
     return cell
   }
   
-  func startUpdating(finish: () -> Void) {
+  func startUpdating(finish: (() -> Void)? = nil) {
     app.networkActivityIndicatorVisible = true
     
     worker.update({ (rides) -> Void in
       dispatch_async(dispatch_get_main_queue(), {
+        finish?()
         self.app.networkActivityIndicatorVisible = false
         self.rides = rides
         self.tableView.reloadData()
-        finish()
       })
     }, failure: { (error) -> Void in
       dispatch_async(dispatch_get_main_queue(), {
         self.app.networkActivityIndicatorVisible = false
-        finish()
+        finish?()
         println("Damn!")
       })
     })
@@ -74,12 +92,17 @@ class MasterViewController: UITableViewController {
   
   // MARK: - UI
   
-  func customizeNavigationBar() {
+  func customizeUI() {
     if let nav = self.navigationController?.navigationBar {
       nav.barStyle = UIBarStyle.Black
       nav.barTintColor = UIColor.blackColor()
       nav.tintColor = UIColor.whiteColor()
     }
+    
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 100.0
+    clearsSelectionOnViewWillAppear = true
+    navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
   }
 }
 

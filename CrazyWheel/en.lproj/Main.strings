@@ -1,0 +1,27 @@
+
+/* Class = "UIViewController"; title = "Detail"; ObjectID = "Ah7-4n-0Wa"; */
+"Ah7-4n-0Wa.title" = "Detail";
+
+/* Class = "UINavigationItem"; title = "Detail"; ObjectID = "cra-N8-TIN"; */
+"cra-N8-TIN.title" = "Detail";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "icI-BI-XGs"; */
+"icI-BI-XGs.text" = "Title";
+
+/* Class = "UILabel"; text = "Body"; ObjectID = "oRm-MW-s9L"; */
+"oRm-MW-s9L.text" = "Body";
+
+/* Class = "UITableViewController"; title = "Master"; ObjectID = "pGg-6v-bdr"; */
+"pGg-6v-bdr.title" = "Master";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "rOj-in-fM0"; */
+"rOj-in-fM0.text" = "Title";
+
+/* Class = "UINavigationController"; title = "Master"; ObjectID = "rS3-R9-Ivy"; */
+"rS3-R9-Ivy.title" = "Master";
+
+/* Class = "UINavigationItem"; title = "wheely"; ObjectID = "tQt-TN-PWz"; */
+"tQt-TN-PWz.title" = "wheely";
+
+/* Class = "UILabel"; text = "Body"; ObjectID = "vk2-nR-hWG"; */
+"vk2-nR-hWG.text" = "Body";
