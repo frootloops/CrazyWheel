@@ -10,6 +10,7 @@ import UIKit
 import AVFoundation
 
 class MasterViewController: UITableViewController {
+  // MARK: - variables
   let app = UIApplication.sharedApplication()
   let worker = Worker()
   let soundEffect = SoundEffect()
@@ -20,10 +21,9 @@ class MasterViewController: UITableViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     customizeUI()
-    refreshControl?.beginRefreshing()
+    refreshControl!.beginRefreshing()
     startUpdating() {
-      self.refreshControl?.endRefreshing()
-      return
+      self.refreshControl!.endRefreshing()
     }
   }
   
@@ -40,11 +40,14 @@ class MasterViewController: UITableViewController {
   }
   
   override func viewDidAppear(animated: Bool) {
-    timer = NSTimer.scheduledTimerWithTimeInterval(20, target: self, selector: Selector("tickTock"), userInfo: nil, repeats: true)
+    timer = NSTimer.scheduledTimerWithTimeInterval(42, target: self, selector: Selector("startUpdating"), userInfo: nil, repeats: true)
   }
   
-  func tickTock() {
-    startUpdating()
+  override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
+    if motion == .MotionShake {
+      refreshControl!.beginRefreshing()
+      refresh(refreshControl!)
+    }
   }
 
   // MARK: - Segues
@@ -69,12 +72,14 @@ class MasterViewController: UITableViewController {
     return cell
   }
   
-  func startUpdating(finish: (() -> Void)? = nil) {
+  // MARK: - Updates
+  
+  func startUpdating(finish: (() -> Void)) {
     app.networkActivityIndicatorVisible = true
     
     worker.update({ (rides) -> Void in
       dispatch_async(dispatch_get_main_queue(), {
-        finish?()
+        finish()
         self.app.networkActivityIndicatorVisible = false
         self.rides = rides
         self.tableView.reloadData()
@@ -82,11 +87,13 @@ class MasterViewController: UITableViewController {
     }, failure: { (error) -> Void in
       dispatch_async(dispatch_get_main_queue(), {
         self.app.networkActivityIndicatorVisible = false
-        finish?()
+        finish()
         println("Damn!")
       })
     })
   }
+  
+  func startUpdating() { startUpdating() {} }
   
   // MARK: - UI
   

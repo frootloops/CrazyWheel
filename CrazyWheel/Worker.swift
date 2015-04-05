@@ -11,6 +11,10 @@ import UIKit
 class Worker {
   let session = NSURLSession.sharedSession()
   var inProgress = false
+  
+  init() {
+    session.configuration.timeoutIntervalForRequest = 10
+  }
 
   private struct Constants {
     static let host = "http://crazy-dev.wheely.com"
@@ -18,22 +22,19 @@ class Worker {
   
   func update(success: (( rides: [Ride]! ) -> Void), failure: (( error: NSError? ) -> Void))
   {
-    if inProgress {
-      return
-    } else {
-      inProgress = true
-    }
+    if inProgress { return }
+    inProgress = true
 
-    let task = session.dataTaskWithURL(NSURL(string: Constants.host)!) {(data, response, error) in
-      if let collection = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as? [NSDictionary] {
+    session.dataTaskWithURL(NSURL(string: Constants.host)!) {(data, response, error) in
+      if error != nil {
+        failure(error: error)
         self.inProgress = false
-        if error != nil {
-          failure(error: error)
-        } else {
-          success(rides: collection.map { Ride.decode($0) })
-        }
       }
-    }
-    task.resume()
+      
+      if let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [NSDictionary] {
+        self.inProgress = false
+        success(rides: data.map { Ride.decode($0) }.filter { $0.valid() })
+      }
+    }.resume()
   }
 }

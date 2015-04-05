@@ -20,4 +20,8 @@ struct Ride {
   
     return Ride(id: id, title: title, body: body)
   }
+  
+  func valid() -> Bool {
+    return id != nil && title != nil && body != nil
+  }
 }
