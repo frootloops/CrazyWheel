@@ -9,19 +9,18 @@
 import Foundation
 
 struct Ride {
-  let id: Int?
-  let title: String?
-  let body: String?
+  let id: Int
+  let title: String
+  let body: String
   
-  static func decode(dict: NSDictionary) -> Ride {
-    let id = dict.objectForKey("id") as? Int
-    let title = dict.objectForKey("title") as? String
-    let body = dict.objectForKey("text") as? String
-  
-    return Ride(id: id, title: title, body: body)
-  }
-  
-  func valid() -> Bool {
-    return id != nil && title != nil && body != nil
+  static func decode(dict: NSDictionary) -> Ride? {
+    if let id = dict.objectForKey("id") as? Int {
+      if let title = dict.objectForKey("title") as? String {
+        if let body = dict.objectForKey("text") as? String {
+          return Ride(id: id, title: title, body: body)
+        }
+      }
+    }
+    return nil
   }
 }

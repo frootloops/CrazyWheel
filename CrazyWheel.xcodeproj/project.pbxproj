@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8129488F1AD44B3C0013DD5B /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30361ACEAA9200E9A7B0 /* Ride.swift */; };
 		81733F621AD0694600E60D17 /* ding.aif in Resources */ = {isa = PBXBuildFile; fileRef = 81733F611AD0694600E60D17 /* ding.aif */; };
 		818C2FED1ACE961700E9A7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FEC1ACE961700E9A7B0 /* AppDelegate.swift */; };
 		818C2FEF1ACE961700E9A7B0 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FEE1ACE961700E9A7B0 /* MasterViewController.swift */; };
 		818C2FF11ACE961700E9A7B0 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C2FF01ACE961700E9A7B0 /* DetailViewController.swift */; };
 		818C2FF41ACE961700E9A7B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 818C2FF21ACE961700E9A7B0 /* Main.storyboard */; };
 		818C2FF61ACE961700E9A7B0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 818C2FF51ACE961700E9A7B0 /* Images.xcassets */; };
-		818C30051ACE961700E9A7B0 /* CrazyWheelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30041ACE961700E9A7B0 /* CrazyWheelTests.swift */; };
+		818C30051ACE961700E9A7B0 /* RideTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30041ACE961700E9A7B0 /* RideTests.swift */; };
 		818C30371ACEAA9200E9A7B0 /* Ride.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30361ACEAA9200E9A7B0 /* Ride.swift */; };
 		818C30391ACEAE4F00E9A7B0 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30381ACEAE4F00E9A7B0 /* Worker.swift */; };
 		818C303D1ACED8D800E9A7B0 /* CrazyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */; };
-		81B3A4321AD0343800F83B7F /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3A4311AD0343800F83B7F /* SoundEffect.swift */; };
+		81B3A4321AD0343800F83B7F /* DingSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3A4311AD0343800F83B7F /* DingSoundEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,11 +42,11 @@
 		818C2FF51ACE961700E9A7B0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		818C2FFE1ACE961700E9A7B0 /* CrazyWheelTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrazyWheelTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		818C30031ACE961700E9A7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		818C30041ACE961700E9A7B0 /* CrazyWheelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrazyWheelTests.swift; sourceTree = "<group>"; };
+		818C30041ACE961700E9A7B0 /* RideTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideTests.swift; sourceTree = "<group>"; };
 		818C30361ACEAA9200E9A7B0 /* Ride.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ride.swift; sourceTree = "<group>"; };
 		818C30381ACEAE4F00E9A7B0 /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrazyCell.swift; sourceTree = "<group>"; };
-		81B3A4311AD0343800F83B7F /* SoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		81B3A4311AD0343800F83B7F /* DingSoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DingSoundEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +97,7 @@
 				818C30361ACEAA9200E9A7B0 /* Ride.swift */,
 				818C30381ACEAE4F00E9A7B0 /* Worker.swift */,
 				818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */,
-				81B3A4311AD0343800F83B7F /* SoundEffect.swift */,
+				81B3A4311AD0343800F83B7F /* DingSoundEffect.swift */,
 			);
 			path = CrazyWheel;
 			sourceTree = "<group>";
@@ -113,7 +114,7 @@
 		818C30011ACE961700E9A7B0 /* CrazyWheelTests */ = {
 			isa = PBXGroup;
 			children = (
-				818C30041ACE961700E9A7B0 /* CrazyWheelTests.swift */,
+				818C30041ACE961700E9A7B0 /* RideTests.swift */,
 				818C30021ACE961700E9A7B0 /* Supporting Files */,
 			);
 			path = CrazyWheelTests;
@@ -230,7 +231,7 @@
 				818C30391ACEAE4F00E9A7B0 /* Worker.swift in Sources */,
 				818C2FF11ACE961700E9A7B0 /* DetailViewController.swift in Sources */,
 				818C30371ACEAA9200E9A7B0 /* Ride.swift in Sources */,
-				81B3A4321AD0343800F83B7F /* SoundEffect.swift in Sources */,
+				81B3A4321AD0343800F83B7F /* DingSoundEffect.swift in Sources */,
 				818C2FEF1ACE961700E9A7B0 /* MasterViewController.swift in Sources */,
 				818C303D1ACED8D800E9A7B0 /* CrazyCell.swift in Sources */,
 				818C2FED1ACE961700E9A7B0 /* AppDelegate.swift in Sources */,
@@ -241,7 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				818C30051ACE961700E9A7B0 /* CrazyWheelTests.swift in Sources */,
+				818C30051ACE961700E9A7B0 /* RideTests.swift in Sources */,
+				8129488F1AD44B3C0013DD5B /* Ride.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,9 +9,9 @@
 import Foundation
 import AVFoundation
 
-class SoundEffect {
-  let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("ding", ofType: "aif")!)
-  var audioPlayer = AVAudioPlayer()
+class DingSoundEffect {
+  private let sound = NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("ding", ofType: "aif")!)
+  private var audioPlayer = AVAudioPlayer()
   
   init() {
     audioPlayer = AVAudioPlayer(contentsOfURL: sound, error: nil)

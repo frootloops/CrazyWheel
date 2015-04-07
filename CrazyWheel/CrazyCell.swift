@@ -13,11 +13,9 @@ class CrazyCell: UITableViewCell {
   @IBOutlet weak var body: UILabel!
   
   var ride: Ride! {
-    didSet { fill() }
-  }
-  
-  func fill() {
-    title.text = ride.title
-    body.text = ride.body
+    didSet {
+      title.text = ride.title
+      body.text = ride.body
+    }
   }
 }

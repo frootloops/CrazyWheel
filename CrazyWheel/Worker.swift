@@ -9,8 +9,8 @@
 import UIKit
 
 class Worker {
-  let session = NSURLSession.sharedSession()
-  var inProgress = false
+  private let session = NSURLSession.sharedSession()
+  private (set) var inProgress = false
   
   init() {
     session.configuration.timeoutIntervalForRequest = 10
@@ -26,14 +26,17 @@ class Worker {
     inProgress = true
 
     session.dataTaskWithURL(NSURL(string: Constants.host)!) {(data, response, error) in
-      if error != nil {
+      let httpResponse = response as? NSHTTPURLResponse
+      
+      if error != nil || httpResponse?.statusCode != 200 {
         failure(error: error)
         self.inProgress = false
       }
       
       if let data = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? [NSDictionary] {
         self.inProgress = false
-        success(rides: data.map { Ride.decode($0) }.filter { $0.valid() })
+        let rides = data.map { Ride.decode($0) }.filter { $0 != nil }.map { $0! }
+        success(rides: rides)
       }
     }.resume()
   }

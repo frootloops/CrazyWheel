@@ -11,11 +11,12 @@ import AVFoundation
 
 class MasterViewController: UITableViewController {
   // MARK: - variables
-  let app = UIApplication.sharedApplication()
-  let worker = Worker()
-  let soundEffect = SoundEffect()
-  var timer: NSTimer?
-  var rides = [Ride]()
+  private let app = UIApplication.sharedApplication()
+  private let worker = Worker()
+  private let dingSoundEffect = DingSoundEffect()
+  private var timer: NSTimer?
+  private var rides = [Ride]()
+  private typealias VoidFunc = () -> Void
 
 
   override func viewDidLoad() {
@@ -30,17 +31,16 @@ class MasterViewController: UITableViewController {
   @IBAction func refresh(sender: UIRefreshControl) {
     startUpdating() {
       sender.endRefreshing()
-      self.soundEffect.play()
+      self.dingSoundEffect.play()
     }
   }
   
   override func viewDidDisappear(animated: Bool) {
     timer?.invalidate()
-    timer = nil
   }
   
   override func viewDidAppear(animated: Bool) {
-    timer = NSTimer.scheduledTimerWithTimeInterval(42, target: self, selector: Selector("startUpdating"), userInfo: nil, repeats: true)
+    startBgRefreshing()
   }
   
   override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent) {
@@ -74,7 +74,14 @@ class MasterViewController: UITableViewController {
   
   // MARK: - Updates
   
-  func startUpdating(finish: (() -> Void)) {
+  func bgRefresh() {
+    timer?.invalidate()
+    startUpdating() {
+      self.startBgRefreshing()
+    }
+  }
+  
+  private func startUpdating(finish: VoidFunc) {
     app.networkActivityIndicatorVisible = true
     
     worker.update({ (rides) -> Void in
@@ -86,22 +93,27 @@ class MasterViewController: UITableViewController {
       })
     }, failure: { (error) -> Void in
       dispatch_async(dispatch_get_main_queue(), {
-        self.app.networkActivityIndicatorVisible = false
         finish()
-        println("Damn!")
+        self.app.networkActivityIndicatorVisible = false
       })
     })
   }
   
-  func startUpdating() { startUpdating() {} }
+  private func startBgRefreshing() {
+    timer = NSTimer.scheduledTimerWithTimeInterval(42,
+      target: self,
+      selector: Selector("bgRefresh"),
+      userInfo: nil,
+      repeats: true)
+  }
   
   // MARK: - UI
   
-  func customizeUI() {
+  private func customizeUI() {
     if let nav = self.navigationController?.navigationBar {
-      nav.barStyle = UIBarStyle.Black
-      nav.barTintColor = UIColor.blackColor()
-      nav.tintColor = UIColor.whiteColor()
+      nav.barStyle = .Black
+      nav.barTintColor = .blackColor()
+      nav.tintColor = .whiteColor()
     }
     
     tableView.rowHeight = UITableViewAutomaticDimension
