@@ -18,6 +18,12 @@ class MasterViewController: UITableViewController {
   private var rides = [Ride]()
   private typealias VoidFunc = () -> Void
 
+  @IBAction func refresh(sender: UIRefreshControl) {
+    startUpdating() {
+      sender.endRefreshing()
+      self.dingSoundEffect.play()
+    }
+  }
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -25,13 +31,6 @@ class MasterViewController: UITableViewController {
     refreshControl!.beginRefreshing()
     startUpdating() {
       self.refreshControl!.endRefreshing()
-    }
-  }
-  
-  @IBAction func refresh(sender: UIRefreshControl) {
-    startUpdating() {
-      sender.endRefreshing()
-      self.dingSoundEffect.play()
     }
   }
   
@@ -48,28 +47,6 @@ class MasterViewController: UITableViewController {
       refreshControl!.beginRefreshing()
       refresh(refreshControl!)
     }
-  }
-
-  // MARK: - Segues
-
-  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    if let indexPath = self.tableView.indexPathForSelectedRow() {
-      let ride = rides[indexPath.row] as Ride
-      (segue.destinationViewController as DetailViewController).ride = ride
-    }
-  }
-
-  // MARK: - Table View
-
-  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return rides.count
-  }
-
-  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as CrazyCell
-    cell.ride = rides[indexPath.row] as Ride
-    
-    return cell
   }
   
   // MARK: - Updates
@@ -120,6 +97,28 @@ class MasterViewController: UITableViewController {
     tableView.estimatedRowHeight = 100.0
     clearsSelectionOnViewWillAppear = true
     navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+  }
+  
+  // MARK: - Segues
+  
+  override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    if let indexPath = self.tableView.indexPathForSelectedRow() {
+      let ride = rides[indexPath.row] as Ride
+      (segue.destinationViewController as DetailViewController).ride = ride
+    }
+  }
+  
+  // MARK: - Table View
+  
+  override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return rides.count
+  }
+  
+  override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as CrazyCell
+    cell.ride = rides[indexPath.row] as Ride
+    
+    return cell
   }
 }
 
