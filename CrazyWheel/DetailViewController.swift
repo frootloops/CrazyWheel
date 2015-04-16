@@ -9,14 +9,21 @@
 import UIKit
 
 class DetailViewController: UIViewController {
-  var ride: Ride?
-  @IBOutlet weak var name: UILabel!
-  @IBOutlet weak var text: UILabel!
+  @IBOutlet weak var name: UILabel?
+  @IBOutlet weak var text: UILabel?
+    
+    var ride: Ride? {
+        didSet {
+            configureView()
+        }
+    }
 
   func configureView() {
-    name.text = ride?.title
-    text.text = ride?.body
-    navigationItem.title = ride?.title
+    if let currentRide = ride {
+        name?.text = currentRide.title
+        text?.text = currentRide.body
+        navigationItem.title = currentRide.title
+    }
   }
 
   override func viewDidLoad() {

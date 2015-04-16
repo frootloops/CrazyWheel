@@ -11,7 +11,12 @@ import XCTest
 
 class RideTests: XCTestCase {
   func testValidDictionary() {
-    XCTAssertTrue(Ride.decode(validDictionary()) != nil)
+    let ride = Ride.decode(validDictionary())
+    XCTAssertTrue(ride != nil)
+    
+    XCTAssertTrue(ride?.id == (validDictionary()["id"] as! Int))
+    XCTAssertTrue(ride?.title == (validDictionary()["title"] as! String))
+    XCTAssertTrue(ride?.body == (validDictionary()["text"] as! String))
   }
   
   func testInvalidDictionary() {
