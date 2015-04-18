@@ -33,7 +33,6 @@ class MasterViewController: UITableViewController {
         worker.update()
     }
     
-    
     // MARK: - UI
     
     private func configureView() {

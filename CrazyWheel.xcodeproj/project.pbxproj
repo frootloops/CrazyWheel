@@ -19,6 +19,7 @@
 		818C30391ACEAE4F00E9A7B0 /* Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C30381ACEAE4F00E9A7B0 /* Worker.swift */; };
 		818C303D1ACED8D800E9A7B0 /* CrazyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */; };
 		81B3A4321AD0343800F83B7F /* DingSoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B3A4311AD0343800F83B7F /* DingSoundEffect.swift */; };
+		81D921B11AE2B13200D76366 /* HireMeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D921B01AE2B13200D76366 /* HireMeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		818C30381ACEAE4F00E9A7B0 /* Worker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Worker.swift; sourceTree = "<group>"; };
 		818C303C1ACED8D800E9A7B0 /* CrazyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CrazyCell.swift; sourceTree = "<group>"; };
 		81B3A4311AD0343800F83B7F /* DingSoundEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DingSoundEffect.swift; sourceTree = "<group>"; };
+		81D921B01AE2B13200D76366 /* HireMeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HireMeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 			children = (
 				81733F611AD0694600E60D17 /* ding.aif */,
 				818C2FEB1ACE961700E9A7B0 /* Info.plist */,
+				81D921B01AE2B13200D76366 /* HireMeViewController.swift */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 				81B3A4321AD0343800F83B7F /* DingSoundEffect.swift in Sources */,
 				818C2FEF1ACE961700E9A7B0 /* MasterViewController.swift in Sources */,
 				818C303D1ACED8D800E9A7B0 /* CrazyCell.swift in Sources */,
+				81D921B11AE2B13200D76366 /* HireMeViewController.swift in Sources */,
 				818C2FED1ACE961700E9A7B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
