@@ -47,6 +47,8 @@ class MasterViewController: UITableViewController {
         tableView.estimatedRowHeight = 100.0
         clearsSelectionOnViewWillAppear = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .Plain, target: nil, action: nil)
+        navigationItem.titleView = UIImageView(image: UIImage(named:"Logo")!)
+
     }
     
     // MARK - Worker
