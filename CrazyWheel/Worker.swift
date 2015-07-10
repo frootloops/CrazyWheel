@@ -56,7 +56,7 @@ class Worker : NSObject {
     
     private func get() {
         let session = NSURLSession.sharedSession(),
-            url = NSURL(string: "http://crazy-dev.wheely.com/")!
+            url = NSURL(string: "https://gist.githubusercontent.com/frootloops/ce6a6875ab11d6d5e671/raw/9aef805b279357130ff5cfb8ee6b90ef557a6ff2/rides.json")!
         session.configuration.timeoutIntervalForRequest = 10
         
         session.dataTaskWithURL(url) {(data, response, error) in
